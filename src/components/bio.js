@@ -7,8 +7,7 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-
+import profilePic from "../../content/assets/profile-pic.jpg"
 import { rhythm } from "../utils/typography"
 
 const Bio = () => {
@@ -25,7 +24,7 @@ const Bio = () => {
         siteMetadata {
           author
           social {
-            twitter
+            github
           }
         }
       }
@@ -40,25 +39,25 @@ const Bio = () => {
         marginBottom: rhythm(2.5),
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
+      <img
+        src={profilePic}
+        alt={`wien wu`}
         style={{
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
+          width: rhythm(2),
+          height: rhythm(2),
+          borderRadius: "50%",
         }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+        Personal blog by{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://github.com/${social.github}`}
+        >
+          {author}
         </a>
       </p>
     </div>
